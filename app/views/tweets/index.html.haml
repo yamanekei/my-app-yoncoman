@@ -4,7 +4,7 @@
       yoncoman
     .main__header__ni
       %h3.main__header__ni__name
-        yk
+        = current_user.name
       %ul.main__header__ni__icon
         %li.main__header__ni__icon__post
           = link_to "#" do
@@ -50,8 +50,9 @@
             .main__main__box__left__message__box__text
               いいねーほんとにいいねーうらやましー
         .main__main__box__left__form
-          -# = f.text_field :content, class: 'main_chat__message-form__mpform__mp__m', placeholder: 'type a message7'
-          -# = f.submit 'Send', class: "main__main__box__left__form__btn"
+          -# = form_for [@message],html: {class:"main__main__box__left__form__box"}  do |f|
+          -#   = f.text_field :content, class: 'main__main__box__left__form__box__field', placeholder: 'type a message7'
+          -#   = f.submit 'Send', class: "main__main__box__left__form__box__btn"
       .main__main__box__right
         .main__main__box__right__image1
          

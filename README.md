@@ -5,7 +5,7 @@
 |email|string|null: false|
 |password|string|null: false|
 |nickname|string|null: false|
-|gender|boolean|null: false|
+|gender|integer|null: false|
 
 ### Association
 - has_many :tweets
