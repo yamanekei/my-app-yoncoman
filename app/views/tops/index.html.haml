@@ -5,9 +5,9 @@
   .top__button
     .top__button__contents
       案内
-    = link_to "#", class: "top__button__btn" do
+    = link_to new_user_registration_path, class: "top__button__btn" do
       = icon('fab fa-grav', class: "top__button__btn__icon")
       新規登録
-    = link_to "#", class: "top__button__btn" do
+    = link_to new_user_session_path, class: "top__button__btn" do
       = icon('fab fa-grav', class: "top__button__btn__icon")
       ログイン
