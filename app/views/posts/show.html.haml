@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Comment:
+  = @post.comment
+%p
+  %b Image:
+  = @post.image
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path

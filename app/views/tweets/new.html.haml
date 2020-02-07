@@ -1,0 +1,11 @@
+.contents.row
+  .container
+    -# = form_for(new_tweet_path, method: :get) do |f|
+    = form_for @tweet, html: { class: "container__form" } do |f|
+      = f.text_field :text, class: 'container__form__text',placeholder: "text"
+      -# = f.label :image, class: "container__form__image" do
+      = f.file_field :image1, class: "container__form__image__1" ,placeholder: "Image Url"
+      = f.file_field :image2, class: "container__form__image__2" ,placeholder: "Image Url"
+      = f.file_field :image3, class: "container__form__image__3" ,placeholder: "Image Url"
+      = f.file_field :image4, class: "container__form__image__4" ,placeholder: "Image Url"
+      = f.submit "SEND"
