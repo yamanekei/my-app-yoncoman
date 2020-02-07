@@ -7,7 +7,7 @@
         = current_user.name
       %ul.main__header__ni__icon
         %li.main__header__ni__icon__post
-          = link_to "#" do
+          = link_to new_tweet_path do
             = icon("fas fa-camera-retro",  class: "main__header__ni__icon__post__btn")
             投稿する
         %li.main__header__ni__icon__lo
@@ -16,142 +16,38 @@
             ログアウト
 
   .main__main
-    .main__main__box
-      .main__main__box__left
-        .main__main__box__left__profile
-          .main__main__box__left__profile__name
-            name:yk
-          .main__main__box__left__profile__text
-            旅行に行きましたーちなみにここはいずなんで
-        .main__main__box__left__message
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-        .main__main__box__left__form
-          -# = form_for [@message],html: {class:"main__main__box__left__form__box"}  do |f|
-          -#   = f.text_field :content, class: 'main__main__box__left__form__box__field', placeholder: 'type a message7'
-          -#   = f.submit 'Send', class: "main__main__box__left__form__box__btn"
-      .main__main__box__right
-        .main__main__box__right__image1
-         
-        -# = f.file_field :image, class: "main__main__box__right__image1"
-        .main__main__box__right__image2
-          
-        -# = f.file_field :image, class: "main__main__box__right__image2"
-        .main__main__box__right__image3
-          
-        -# = f.file_field :image, class: "main__main__box__right__image3"
-        .main__main__box__right__image4
-        
-        -# = f.file_field :image, class: "main__main__box__right__image4"
+    - current_user.tweets.each do |tweet|
+      .main__main__box
+        .main__main__box__left
+          .main__main__box__left__profile
+            .main__main__box__left__profile__name
+              .main__main__box__left__profile__name__de
+                name:
+              .main__main__box__left__profile__name__name
+                = tweet.user.name
+            .main__main__box__left__profile__text
+              = tweet.text
+          .main__main__box__left__message
+            - current_user.comments.each do |comment|
+              .main__main__box__left__message__box
+                .main__main__box__left__message__box__name
+                  = comment.user.name
+                .main__main__box__left__message__box__text
+                  = comment.text
+          .main__main__box__left__form
+            -# = form_for [@tweet, @comments],html: {class:"main__main__box__left__form__box"}  do |f|
+            -#   = f.text_field :content, class: 'main__main__box__left__form__box__field', placeholder: 'type a message'
+            -#   = f.submit 'Send', class: "main__main__box__left__form__box__btn"
+        .main__main__box__right
+          .main__main__box__right__image1
+            = image_tag tweet.image1
+          .main__main__box__right__image2
+            = image_tag tweet.image2
+          .main__main__box__right__image3
+            = image_tag tweet.image3
+          .main__main__box__right__image4
+            = image_tag tweet.image4
 
-    .main__main__box
-      .main__main__box__left
-        .main__main__box__left__profile
-          .main__main__box__left__profile__name
-            name:yk
-          .main__main__box__left__profile__text
-            旅行に行きましたーちなみにここはいずなんで
-        .main__main__box__left__message
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-        .main__main__box__left__form
-          -# = f.text_field :content, class: 'main_chat__message-form__mpform__mp__m', placeholder: 'type a message7'
-          -# = f.submit 'Send', class: "main__main__box__left__form__btn"
-      .main__main__box__right
-        -# = f.file_field :image, class: "main__main__box__right__image1"
-        -# = f.file_field :image, class: "main__main__box__right__image2"
-        -# = f.file_field :image, class: "main__main__box__right__image3"
-        -# = f.file_field :image, class: "main__main__box__right__image4"
-
-    .main__main__box
-      .main__main__box__left
-        .main__main__box__left__profile
-          .main__main__box__left__profile__name
-            name:yk
-          .main__main__box__left__profile__text
-            旅行に行きましたーちなみにここはいずなんで
-        .main__main__box__left__message
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-        .main__main__box__left__form
-          -# = f.text_field :content, class: 'main_chat__message-form__mpform__mp__m', placeholder: 'type a message7'
-          -# = f.submit 'Send', class: "main__main__box__left__form__btn"
-      .main__main__box__right
-        -# = f.file_field :image, class: "main__main__box__right__image1"
-        -# = f.file_field :image, class: "main__main__box__right__image2"
-        -# = f.file_field :image, class: "main__main__box__right__image3"
-        -# = f.file_field :image, class: "main__main__box__right__image4"
-
-    .main__main__box
-      .main__main__box__left
-        .main__main__box__left__profile
-          .main__main__box__left__profile__name
-            name:yk
-          .main__main__box__left__profile__text
-            旅行に行きましたーちなみにここはいずなんで
-        .main__main__box__left__message
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-        .main__main__box__left__form
-          -# = f.text_field :content, class: 'main_chat__message-form__mpform__mp__m', placeholder: 'type a message7'
-          -# = f.submit 'Send', class: "main__main__box__left__form__btn"
-      .main__main__box__right
-        -# = f.file_field :image, class: "main__main__box__right__image1"
-        -# = f.file_field :image, class: "main__main__box__right__image2"
-        -# = f.file_field :image, class: "main__main__box__right__image3"
-        -# = f.file_field :image, class: "main__main__box__right__image4"
-    .main__main__box
-      .main__main__box__left
-        .main__main__box__left__profile
-          .main__main__box__left__profile__name
-            name:yk
-          .main__main__box__left__profile__text
-            旅行に行きましたーちなみにここはいずなんで
-        .main__main__box__left__message
-          .main__main__box__left__message__box
-            .main__main__box__left__message__box__name
-              コメントさん
-            .main__main__box__left__message__box__text
-              いいねーほんとにいいねーうらやましー
-        .main__main__box__left__form
-          -# = f.text_field :content, class: 'main_chat__message-form__mpform__mp__m', placeholder: 'type a message7'
-          -# = f.submit 'Send', class: "main__main__box__left__form__btn"
-      .main__main__box__right
-        -# = f.file_field :image, class: "main__main__box__right__image1"
-        -# = f.file_field :image, class: "main__main__box__right__image2"
-        -# = f.file_field :image, class: "main__main__box__right__image3"
-        -# = f.file_field :image, class: "main__main__box__right__image4"
+    
 
 
